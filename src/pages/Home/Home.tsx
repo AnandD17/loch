@@ -153,7 +153,7 @@ const Home = (props: Props) => {
 
             {/* Section 2 */}
             {/* Section 2 left image */}
-            <div className="sm:col-span-5 col-span-11 mt-[40px]">
+            <div className="sm:col-span-5 col-span-11 sm:block hidden mt-[40px]">
               <img
                 src={IMAGES.BANNERLEFT}
                 className="w-full rounded-xl"
@@ -170,6 +170,13 @@ const Home = (props: Props) => {
                 All whales are not equal. Know exactly what the whales impacting
                 YOUR portfolio are doing.
               </h6>
+            </div>
+            <div className="sm:col-span-5 col-span-11 block sm:hidden mt-[40px]">
+              <img
+                src={IMAGES.BANNERLEFT}
+                className="w-full rounded-xl"
+                alt=""
+              />
             </div>
             <div className="col-span-1"></div>
             {/* End of Section 2 */}
