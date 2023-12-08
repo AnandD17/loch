@@ -12,13 +12,17 @@ import SaveCheck from "../../components/Other/SaveCheck";
 import { TESTIMONIALS } from "../../contants/constants";
 import { validateEmail } from "../../utils/validators";
 import { toast } from "react-toastify";
+import Testimonial from "../../components/Home/Testimonial";
 
 type Props = {};
 
 const Home = (props: Props) => {
+  
  
 
   const [email, setEmail] = useState("");
+  const [leftSlider, setLeftSlider] = useState(0);
+  const [rightSlider, setRightSlider] = useState(1);
 
   
 
@@ -61,6 +65,16 @@ const Home = (props: Props) => {
     //   }
     // ]
   };
+
+  const SliderSettings2 = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 500,
+    slidesToScroll: 1,
+    arrows: false,
+  }
 
   const handleSubmit = () => {
     if (validateEmail(email)) {
@@ -107,9 +121,9 @@ const Home = (props: Props) => {
             {/* Section1 Right Carousol */}
             <div className="sm:col-span-6 col-span-11 ">
               <div className="relative">
-                <div className="absolute carosol-shadow w-full h-full top-0 left-0 z-[100]"></div>
-                <Slider {...sliderSettings}>
-                  <NotificationCard>
+                {/* <div className="absolute carosol-shadow w-full h-full top-0 left-0 z-[100]"></div> */}
+                <Slider beforeChange={(a,b)=>{console.log(a,b);setLeftSlider(b); setRightSlider(b==2?0:b+1)}}  {...sliderSettings}>
+                  <NotificationCard index={0} left={leftSlider} right={rightSlider}>
                     <div className="flex justify-between items-center">
                       <ICONS.BELL_SPACED />
                       <SaveCheck />
@@ -121,7 +135,7 @@ const Home = (props: Props) => {
                       hello@gmail.com
                     </div>
                   </NotificationCard>
-                  <NotificationCard>
+                  <NotificationCard index={1} left={leftSlider} right={rightSlider}>
                     <div className="flex justify-between items-center">
                       <ICONS.BAR_CHART />
                       <SaveCheck />
@@ -133,7 +147,7 @@ const Home = (props: Props) => {
                       $1,000.00 <ICONS.TRIANGLE_DOWN />
                     </button>
                   </NotificationCard>
-                  <NotificationCard>
+                  <NotificationCard index={2} left={leftSlider} right={rightSlider}>
                     <div className="flex justify-between items-center">
                       <ICONS.CLOCK />
                       <SaveCheck />
@@ -196,11 +210,7 @@ const Home = (props: Props) => {
               <div className="w-[60px] h-[60px]">
                 <ICONS.LOGO />
               </div>
-              <div className="flex gap-4 overflow-y-auto flex-nowrap pr-2 sm:mt-0 mt-5">
-                {TESTIMONIALS.map((item, index) => (
-                  <TestimonialCard key={index} index={index} {...item} />
-                ))}
-              </div>
+              <Testimonial />
             </div>
             {/* End of Section 3 */}
           </div>

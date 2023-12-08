@@ -15,3 +15,26 @@ body {
 .carosol-shadow{
   box-shadow:35px 0px 20px 10px rgba(0, 0, 0, 0.25) inset, -35px 0px 20px 10px rgba(0, 0, 0, 0.25) inset;
 }
+
+.shadow-left{
+  box-shadow:35px 0px 20px 10px rgba(0, 0, 0, 0.25) inset;
+}
+
+.shadow-right{
+  box-shadow:-35px 0px 20px 10px rgba(0, 0, 0, 0.25) inset;
+}
+
+.bg-card-one{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.20) 27.5%, rgba(22, 93, 255, 0.16) 157.71%), #FFF !important;
+}
+
+.horizontal-scroll-container {
+  /* width: 100%;
+  overflow-x: auto;
+  white-space: nowrap; */
+  cursor: grab;
+}
+
+.horizontal-scroll-container:active {
+  cursor: grabbing;
+}
